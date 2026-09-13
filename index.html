@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Brdawm Studios — premium Discord server design, development, branding and custom systems.">
+<meta name="theme-color" content="#050505">
+<title>Brdawm Studios — Discord Services</title>
+<style>
+:root{--bg:#050505;--panel:#0b0b0b;--panel2:#101010;--text:#f5f5f5;--muted:#8f8f8f;--line:#282828;--silver:#c9c9c9;--max:1180px;--ok:#dfffe8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px}
+a{color:inherit;text-decoration:none}.wrap{max-width:var(--max);margin:auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(5,5,5,.9);backdrop-filter:blur(18px)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:14px;font-weight:900;letter-spacing:.18em}.navlinks{display:flex;gap:25px;color:#aaa;font-size:13px}.navlinks a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:0 18px;border:1px solid #444;border-radius:3px;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:.2s;cursor:pointer;background:transparent;color:#fff}.btn:hover{transform:translateY(-2px);border-color:#aaa}.btn.primary{background:#f4f4f4;color:#050505;border-color:#f4f4f4}
+.hero{min-height:calc(100vh - 72px);display:flex;align-items:center;padding:80px 0}.eyebrow{font-size:10px;letter-spacing:.27em;text-transform:uppercase;color:#888}
+.hero h1{font-size:clamp(56px,10vw,128px);line-height:.84;letter-spacing:-.07em;margin:20px 0 25px;max-width:1000px}.metal{background:linear-gradient(100deg,#fff 10%,#777 46%,#eee 63%,#888 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:650px;color:#aaa;font-size:16px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.mini{margin-top:45px;color:#666;font-size:11px;letter-spacing:.08em}
+section{padding:95px 0;border-top:1px solid #1e1e1e}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}.sectionhead h2{font-size:clamp(35px,5vw,55px);line-height:1;margin:7px 0 0;letter-spacing:-.05em}.rightnote{color:#666;font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{position:relative;min-height:215px;padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#0e0e0e,#080808);overflow:hidden}.card:after{content:"";position:absolute;width:210px;height:210px;right:-120px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.09),transparent 68%)}.num{color:#666;font-size:10px}.card h3{margin:45px 0 8px;font-size:20px}.card p{margin:0;color:#858585;font-size:13px;max-width:330px}
+.showcase{display:grid;grid-template-columns:1.35fr .65fr;gap:12px}.project{min-height:380px;border:1px solid var(--line);background:linear-gradient(135deg,#111,#070707);padding:30px;display:flex;flex-direction:column;justify-content:end;position:relative;overflow:hidden}.project:before{content:"BRDAWM";position:absolute;top:20px;right:25px;font-size:11px;letter-spacing:.25em;color:#333}.project h3{font-size:38px;line-height:1;margin:8px 0}.project p{color:#888;max-width:500px}.tag{display:inline-block;border:1px solid #333;padding:6px 9px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#aaa;width:max-content}
+.packages{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.price{border:1px solid var(--line);padding:22px;background:#090909;min-height:175px;cursor:pointer;transition:.2s}.price:hover,.price.active{border-color:#eee;transform:translateY(-3px)}.price .name{font-size:10px;letter-spacing:.17em;color:#888}.price strong{display:block;font-size:31px;margin:10px 0 3px}.price small{color:#666}.price .includes{display:block;color:#999;font-size:11px;margin-top:8px}
+.addons{margin-top:12px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.addon{border:1px solid var(--line);padding:15px;color:#aaa;display:flex;justify-content:space-between;gap:15px;font-size:12px;cursor:pointer;transition:.18s}.addon:hover,.addon.selected{border-color:#eee;background:#111;color:#fff}.addon b{color:#eee;white-space:nowrap}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.how .step{border-top:2px solid #444;padding-top:18px}.step b{font-size:11px;color:#777}.step h3{font-size:17px}.step p{font-size:12px;color:#777}
+.order-shell{display:grid;grid-template-columns:1fr 330px;gap:35px;align-items:start}.formbox{border:1px solid var(--line);padding:25px;background:#080808}form{max-width:850px;margin:auto}.progress{display:flex;gap:6px;margin-bottom:28px}.bar{height:3px;flex:1;background:#292929}.bar.on{background:#eee}
+.question{display:none}.question.active{display:block}.question h3{font-size:clamp(28px,5vw,45px);line-height:1.05;margin:0 0 24px;letter-spacing:-.04em}.options{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.option{border:1px solid #292929;background:#090909;padding:18px;cursor:pointer;color:#bbb;transition:.18s}.option:hover,.option.selected{border-color:#eee;background:#111;color:#fff}
+.field{display:block;margin:12px 0}.field span{display:block;font-size:10px;color:#777;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;border:1px solid #292929;background:#090909;color:#fff;padding:15px;outline:0;font:inherit;border-radius:0}.field textarea{min-height:120px;resize:vertical}
+.formnav{display:flex;justify-content:space-between;gap:10px;margin-top:25px}.summary{border:1px solid #292929;padding:18px;color:#aaa;font-size:12px;white-space:pre-wrap}.sticky-summary{position:sticky;top:95px;border:1px solid var(--line);background:#090909;padding:22px}.sticky-summary h3{margin-top:0}.sumrow{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #222;padding:10px 0;color:#999;font-size:12px}.sumrow strong{color:#fff;text-align:right}.total{display:flex;justify-content:space-between;margin-top:17px;font-size:18px}.note{font-size:11px;color:#666;margin-top:15px}
+.faq{max-width:850px}.faq details{border-bottom:1px solid #262626;padding:18px 0}.faq summary{cursor:pointer;font-weight:750}.faq p{color:#888;font-size:13px}
+.notice{border:1px solid #333;padding:14px 16px;color:#aaa;font-size:12px;margin-bottom:18px;background:#0a0a0a}.notice b{color:#fff}
+footer{border-top:1px solid #222;padding:40px 0;color:#666;font-size:11px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.toast{position:fixed;right:18px;bottom:18px;max-width:380px;background:#eee;color:#050505;padding:15px 17px;border-radius:3px;font-size:12px;font-weight:700;display:none;z-index:50}
+@media(max-width:900px){.ref-showcase{grid-template-columns:1fr}.ref-panel{min-height:460px}}.order-shell{grid-template-columns:1fr}.sticky-summary{position:static}.grid,.packages,.showcase,.how{grid-template-columns:1fr 1fr}}
+@media(max-width:820px){.navlinks{display:none}.hero{padding:70px 0}.hero h1{font-size:62px}.addons{grid-template-columns:1fr}}
+@media(max-width:560px){.grid,.packages,.showcase,.how,.options{grid-template-columns:1fr}.hero h1{font-size:54px}.sectionhead{align-items:start;flex-direction:column}.project{min-height:300px}.wrap{padding:0 17px}}
+
+/* Reference-video inspired visual treatment */
+.ref-hero{min-height:100vh;padding:100px 20px 70px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(145deg,#111 0%,#555 43%,#aaa 100%)}
+.ref-hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.34),transparent 34%),linear-gradient(120deg,transparent 35%,rgba(255,255,255,.08) 50%,transparent 65%);filter:blur(18px)}
+.ref-inner{width:min(780px,100%);text-align:center;position:relative;z-index:2}
+.ref-kicker{font-size:clamp(27px,4vw,44px);font-weight:850;letter-spacing:-.035em;margin-bottom:32px}
+.ref-frame{width:min(700px,92vw);aspect-ratio:16/9;margin:auto;border-radius:14px;border:1px solid rgba(255,255,255,.55);background:rgba(245,245,245,.82);box-shadow:0 45px 100px rgba(0,0,0,.38),0 12px 25px rgba(0,0,0,.22);padding:7px;transform:perspective(1300px) rotateX(3deg) rotateY(-2deg);animation:refFloat 5s ease-in-out infinite}
+.ref-browser{width:100%;height:100%;border-radius:9px;background:#f5f5f5;overflow:hidden;position:relative}
+.ref-top{height:23px;border-bottom:1px solid #ddd;display:flex;align-items:center;padding:0 9px;gap:5px;background:#fafafa}
+.ref-dot{width:5px;height:5px;border-radius:50%;background:#b8b8b8}.ref-address{height:7px;border-radius:8px;background:#ddd;flex:1;margin-left:8px}
+.ref-page{height:calc(100% - 23px);display:grid;grid-template-columns:34% 66%;background:linear-gradient(135deg,#fff,#ececec)}
+.ref-sidebar{padding:17px 14px;border-right:1px solid #ddd;text-align:left}.ref-logo{font-size:9px;font-weight:950;letter-spacing:.16em;color:#333;margin-bottom:18px}.ref-line{height:5px;border-radius:5px;background:#d5d5d5;margin:8px 0;width:80%}.ref-line.short{width:48%}
+.ref-main{padding:22px;text-align:left;position:relative}.ref-main h3{font-size:clamp(17px,2.5vw,28px);color:#242424;line-height:.95;margin:10px 0;letter-spacing:-.06em}.ref-main p{font-size:7px;color:#888;max-width:230px}.ref-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.ref-pill{height:28px;min-width:52px;border-radius:6px;background:linear-gradient(135deg,#efefef,#c7c7c7);border:1px solid #ddd}.ref-pill:nth-child(2){background:linear-gradient(135deg,#bbb,#f1f1f1)}.ref-pill:nth-child(3){background:linear-gradient(135deg,#ddd,#aaa)}
+.ref-phone{position:absolute;right:8%;bottom:-8%;width:25%;aspect-ratio:.52;border-radius:15px;border:4px solid #444;background:#eee;box-shadow:0 20px 35px rgba(0,0,0,.3);transform:rotate(8deg)}.ref-phone:after{content:"";position:absolute;inset:8px;border-radius:9px;background:linear-gradient(145deg,#fff,#c8c8c8)}
+.ref-caption{font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(34px,6vw,72px);letter-spacing:.035em;margin-top:34px;color:#eee;text-shadow:0 3px 12px rgba(0,0,0,.35)}
+.ref-sub{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-top:8px}
+@keyframes refFloat{0%,100%{transform:perspective(1300px) rotateX(3deg) rotateY(-2deg) translateY(0)}50%{transform:perspective(1300px) rotateX(3deg) rotateY(-2deg) translateY(-12px)}}
+
+.ref-showcase{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ref-panel{min-height:560px;border-radius:16px;background:linear-gradient(145deg,#222,#888);border:1px solid #444;display:grid;place-items:center;overflow:hidden;position:relative;padding:28px}
+.ref-panel .ref-frame{width:100%;transform:perspective(1200px) rotateX(4deg) rotateY(-5deg) rotateZ(-1deg)}
+.ref-panel:nth-child(2) .ref-frame{transform:perspective(1200px) rotateX(4deg) rotateY(5deg) rotateZ(1deg)}
+.ref-panel .ref-caption{font-size:clamp(34px,5vw,60px);position:absolute;bottom:24px;margin:0}
+
+
+.full-plans-section{background:#f2f1ee;color:#151515;border-top:1px solid #171717;padding:70px 0 55px}
+.full-plans-section .eyebrow{color:#151515;font-size:13px;letter-spacing:.22em;line-height:1.5;max-width:230px}
+.full-plans-top{display:flex;justify-content:space-between;align-items:flex-start;border-top:2px solid #171717;padding:17px 15px 15px;margin-bottom:14px}
+.full-top-rule{width:180px;border-bottom:1px solid #171717;margin-top:8px}.full-top-right{text-align:right;font-size:12px;line-height:1.45;letter-spacing:.2em;text-transform:uppercase}
+.full-package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.full-price-card{border:2px solid #191919;border-radius:4px;background:#f8f7f4;overflow:hidden;box-shadow:0 2px 0 #111;transition:.22s;display:flex;flex-direction:column}
+.full-price-card:hover{transform:translateY(-3px);box-shadow:0 7px 0 #111}
+.full-price-head{min-height:67px;background:#101010;color:#f7f6f2;padding:9px 17px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.full-price-head h3{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:.95;letter-spacing:.015em;margin:0 0 4px}
+.full-price-head p{font-family:Georgia,"Times New Roman",serif;font-size:13px;margin:0;color:#f2f2f2}
+.full-price-head strong{font-family:Georgia,"Times New Roman",serif;font-size:26px;white-space:nowrap}
+.full-feature-list{padding:12px 18px 10px;display:grid;grid-template-columns:1fr;gap:2px;min-height:320px;align-content:start;font-family:Georgia,"Times New Roman",serif}
+.full-feature-list li{list-style:none;font-size:13px;line-height:1.25}.full-feature-list li:first-letter{font-weight:900}
+.full-price-foot{margin:0 17px;border-top:1px solid #555;padding:10px 0;display:flex;align-items:center;gap:11px;font-size:10px;letter-spacing:.12em;min-height:37px}
+.full-price-foot i{font-style:normal;color:#555}.full-price-foot button{margin-left:auto;background:#111;color:#fff;border:1px solid #111;padding:8px 10px;font-size:9px;letter-spacing:.15em;cursor:pointer}
+.full-price-card:nth-child(4) .full-feature-list,.full-price-card:nth-child(5) .full-feature-list,.full-price-card:nth-child(6) .full-feature-list{min-height:430px}
+.full-price-card:nth-child(7),.full-price-card:nth-child(8){grid-column:span 1}
+.full-price-card:nth-child(7) .full-feature-list,.full-price-card:nth-child(8) .full-feature-list{min-height:255px;columns:2;column-gap:25px}
+.full-price-card:nth-child(7) .full-feature-list li,.full-price-card:nth-child(8) .full-feature-list li{break-inside:avoid}
+.full-price-card.selected-full{outline:4px solid #111;outline-offset:2px}
+.full-addons{border:2px solid #191919;margin-top:14px;background:#f8f7f4}
+.full-addon-title{background:#111;color:#fff;display:flex;align-items:center;gap:14px;padding:10px 18px}
+.full-addon-title span{font-family:Georgia,"Times New Roman",serif;font-size:28px;letter-spacing:.16em}.full-addon-title i{height:1px;background:#eee;flex:1}.full-addon-title small{font-size:9px;letter-spacing:.15em}
+.full-addon-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:13px 20px}
+.full-addon{border:0;border-right:1px solid #777;background:transparent;padding:6px 18px;display:flex;justify-content:space-between;font-family:Georgia,"Times New Roman",serif;font-size:13px;cursor:pointer;text-align:left;color:#171717}
+.full-addon:nth-child(3n){border-right:0}.full-addon:hover,.full-addon.selected{font-weight:800;background:#e8e7e3}.full-addon b{font-weight:400}
+.full-benefits{display:grid;grid-template-columns:repeat(4,1fr);margin-top:23px;border-top:1px solid #222;padding:14px 18px 0;gap:10px}
+.full-benefits div{display:flex;align-items:center;justify-content:center;gap:12px;border-right:1px solid #555;font-size:23px}.full-benefits div:last-child{border-right:0}.full-benefits span{font-size:10px;letter-spacing:.13em}
+@media(max-width:950px){.full-package-grid{grid-template-columns:repeat(2,1fr)}.full-price-card:nth-child(7),.full-price-card:nth-child(8){grid-column:span 2}.full-addon-grid{grid-template-columns:1fr 1fr}.full-addon:nth-child(3n){border-right:1px solid #777}.full-addon:nth-child(2n){border-right:0}}
+@media(max-width:600px){.full-plans-section{padding:45px 0}.full-plans-top{padding-left:0;padding-right:0}.full-package-grid{grid-template-columns:1fr}.full-price-card:nth-child(7),.full-price-card:nth-child(8){grid-column:span 1}.full-price-card:nth-child(7) .full-feature-list,.full-price-card:nth-child(8) .full-feature-list{columns:1}.full-addon-grid{grid-template-columns:1fr}.full-addon{border-right:0!important;border-bottom:1px solid #ccc}.full-benefits{grid-template-columns:1fr 1fr}.full-benefits div:nth-child(2){border-right:0}.full-benefits div{border-bottom:1px solid #555;padding:10px 0}.full-price-head h3{font-size:27px}}
+
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+<a class="brand" href="#">BRDAWM STUDIOS</a>
+<div class="navlinks"><a href="#services">Services</a><a href="#showcase">Showcase</a><a href="#packages">Packages</a><a href="#order">Order</a><a href="#faq">FAQ</a></div>
+<a class="btn" href="#order">Start a Project</a>
+</div></nav>
+
+<header class="wrap hero"><div>
+<div class="eyebrow">Discord Design · Development · Branding</div>
+<h1>BUILT TO<br><span class="metal">STAND OUT.</span></h1>
+<p class="lead">Premium Discord server experiences — from clean architecture and branding to custom systems, automation and security.</p>
+<div class="actions"><a class="btn primary" href="#order">Start Your Project</a><a class="btn" href="#packages">View Plans</a></div>
+<div class="mini">BRDAWMX · BRDAWM@GMAIL.COM</div>
+</div></header>
+
+<section id="services"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Capabilities</div><h2>Services</h2></div><div class="rightnote">01 — 10</div></div>
+<div class="grid">
+<div class="card"><span class="num">01</span><h3>Server Design</h3><p>Custom channels, roles and server structures built around your brief.</p></div>
+<div class="card"><span class="num">02</span><h3>Custom Bots</h3><p>Custom bot functionality, commands and workflows.</p></div>
+<div class="card"><span class="num">03</span><h3>Ticket Systems</h3><p>Advanced ticket workflows for support and staff operations.</p></div>
+<div class="card"><span class="num">04</span><h3>Security</h3><p>Anti-raid and security-focused server systems.</p></div>
+<div class="card"><span class="num">05</span><h3>Custom Branding</h3><p>A consistent visual direction for a polished server identity.</p></div>
+<div class="card"><span class="num">06</span><h3>Economy Systems</h3><p>Structured economy features for servers that need progression systems.</p></div>
+<div class="card"><span class="num">07</span><h3>Applications</h3><p>Staff application systems designed for clean intake and review.</p></div>
+<div class="card"><span class="num">08</span><h3>Giveaways</h3><p>Giveaway functionality for community events and promotions.</p></div>
+<div class="card"><span class="num">09</span><h3>Database Integration</h3><p>Database-connected functionality for custom project requirements.</p></div>
+<div class="card"><span class="num">10</span><h3>Server Migration</h3><p>Move an existing server into a new structure with a clear process.</p></div>
+</div></div></section>
+
+<section id="showcase">
+<div class="wrap">
+  <div class="section-title"><div><div class="eyebrow">The visual direction</div><h2>The Design</h2></div><div class="small">02 — 02</div></div>
+  <div class="ref-showcase">
+    <div class="ref-panel"><div class="ref-frame"><div class="ref-browser"><div class="ref-top"><i class="ref-dot"></i><i class="ref-dot"></i><i class="ref-dot"></i><div class="ref-address"></div></div><div class="ref-page"><div class="ref-sidebar"><div class="ref-logo">BRDAWM</div><div class="ref-line"></div><div class="ref-line short"></div><div class="ref-line"></div></div><div class="ref-main"><h3>Build your<br>community.</h3><p>Clean architecture with a polished visual system.</p><div class="ref-pills"><span class="ref-pill"></span><span class="ref-pill"></span><span class="ref-pill"></span></div></div></div></div></div><div class="ref-caption">THE DESIGN</div></div>
+    <div class="ref-panel"><div class="ref-frame"><div class="ref-browser"><div class="ref-top"><i class="ref-dot"></i><i class="ref-dot"></i><i class="ref-dot"></i><div class="ref-address"></div></div><div class="ref-page"><div class="ref-main"><h3>Systems that<br>feel custom.</h3><p>Tickets, moderation, economy, applications and more.</p><div class="ref-pills"><span class="ref-pill"></span><span class="ref-pill"></span><span class="ref-pill"></span></div></div></div></div></div><div class="ref-caption">CODE WITH ME</div></div>
+  </div>
+  <div style="margin-top:18px"><a class="btn" target="_blank" rel="noopener" href="https://guns.lol/brdawm">View BRDAWM Profile ↗</a></div>
+</div>
+</section>
+
+
+<section id="packages" class="full-plans-section">
+<div class="wrap">
+  <div class="full-plans-top">
+    <div><div class="eyebrow">Professional Discord Server Solutions</div><div class="full-top-rule"></div></div>
+    <div class="full-top-right">Your Vision<br>Our Setup</div>
+  </div>
+  <div class="full-package-grid">
+<article class="full-price-card" data-plan="0">
+  <div class="full-price-head">
+    <div><h3>Starter</h3><p>Perfect for small communities</p></div><strong>$5</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 25+ Channels</li><li>✓ 15+ Roles</li><li>✓ Category Organization</li><li>✓ Permission Setup</li><li>✓ Welcome System</li><li>✓ Rules &amp; Info Setup</li><li>✓ Basic AutoMod</li><li>✓ Verification</li><li>✓ Reaction Roles</li><li>✓ 3 Bot Setup</li><li>✓ Basic Logging</li><li>✓ Server Optimization</li></div>
+  <div class="full-price-foot"><span>25+ CHANNELS</span><i>|</i><span>15+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(0)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="1">
+  <div class="full-price-head">
+    <div><h3>Basic</h3><p>Ideal for growing communities</p></div><strong>$10</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 50+ Channels</li><li>✓ 30+ Roles</li><li>✓ Everything in Starter</li><li>✓ Advanced AutoMod</li><li>✓ Staff Roles &amp; Permissions</li><li>✓ Moderation System</li><li>✓ Full Logging</li><li>✓ Ticket System</li><li>✓ Welcome &amp; Goodbye</li><li>✓ Reaction Roles</li><li>✓ Suggestions &amp; Polls</li><li>✓ 6 Bot Setup</li><li>✓ Custom Embeds</li><li>✓ Server Security</li></div>
+  <div class="full-price-foot"><span>50+ CHANNELS</span><i>|</i><span>30+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(1)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="2">
+  <div class="full-price-head">
+    <div><h3>Standard</h3><p>Great for gaming &amp; active communities</p></div><strong>$15</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 75+ Channels</li><li>✓ 45+ Roles</li><li>✓ Everything in Basic</li><li>✓ Advanced Ticket System</li><li>✓ Staff Application System</li><li>✓ Giveaway System</li><li>✓ Leveling System</li><li>✓ Economy System</li><li>✓ XP &amp; Rank Roles</li><li>✓ Custom Embeds</li><li>✓ Partnership System</li><li>✓ Reports System</li><li>✓ Suggestions System</li><li>✓ Advanced Logs</li><li>✓ 10 Bot Setup</li><li>✓ Advanced Security</li><li>✓ Server Branding</li></div>
+  <div class="full-price-foot"><span>75+ CHANNELS</span><i>|</i><span>45+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(2)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="3">
+  <div class="full-price-head">
+    <div><h3>Pro</h3><p>For serious communities</p></div><strong>$20</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 100+ Channels</li><li>✓ 60+ Roles</li><li>✓ Everything in Standard</li><li>✓ Advanced Economy</li><li>✓ Advanced Ticket System</li><li>✓ Staff Management</li><li>✓ Staff Applications</li><li>✓ Custom Commands</li><li>✓ Anti-Raid</li><li>✓ Anti-Nuke</li><li>✓ Anti-Spam</li><li>✓ Advanced AutoMod</li><li>✓ Full Moderation System</li><li>✓ Advanced Logging</li><li>✓ Giveaway Management</li><li>✓ Verification Levels</li><li>✓ 15 Bot Setup</li><li>✓ Server Backup Setup</li><li>✓ Complete Server Optimization</li></div>
+  <div class="full-price-foot"><span>100+ CHANNELS</span><i>|</i><span>60+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(3)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="4">
+  <div class="full-price-head">
+    <div><h3>Premium</h3><p>Professional custom development</p></div><strong>$30</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 150+ Channels</li><li>✓ 80+ Roles</li><li>✓ Everything in Pro</li><li>✓ Custom Server Branding</li><li>✓ Custom Bot Setup</li><li>✓ Custom Commands</li><li>✓ Advanced Database System</li><li>✓ Custom Ticket System</li><li>✓ Advanced Economy</li><li>✓ Advanced Staff System</li><li>✓ Advanced Application System</li><li>✓ Anti-Raid + Anti-Nuke</li><li>✓ Advanced Automation</li><li>✓ Custom Embeds</li><li>✓ Professional Permission Structure</li><li>✓ 20+ Bot Setup</li><li>✓ Full Security Configuration</li><li>✓ Complete Server Architecture</li></div>
+  <div class="full-price-foot"><span>150+ CHANNELS</span><i>|</i><span>80+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(4)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="5">
+  <div class="full-price-head">
+    <div><h3>Elite</h3><p>Complete Discord server solution</p></div><strong>$50</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 200+ Channels</li><li>✓ 100+ Roles</li><li>✓ Everything in Premium</li><li>✓ Custom Discord Bot</li><li>✓ Database Integration</li><li>✓ Multiple Custom Systems</li><li>✓ Custom Economy</li><li>✓ Custom Ticket System</li><li>✓ Custom Application System</li><li>✓ Advanced Staff Dashboard</li><li>✓ Advanced Automation</li><li>✓ Advanced Moderation</li><li>✓ Advanced Security</li><li>✓ Anti-Raid</li><li>✓ Anti-Nuke</li><li>✓ Custom Commands</li><li>✓ Custom Logging</li><li>✓ Custom Verification</li><li>✓ Custom Branding</li><li>✓ 25+ Bot Integrations</li><li>✓ Full Server Architecture</li><li>✓ Complete Configuration</li><li>✓ Final Testing &amp; Optimization</li></div>
+  <div class="full-price-foot"><span>200+ CHANNELS</span><i>|</i><span>100+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(5)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="6">
+  <div class="full-price-head">
+    <div><h3>Commercial</h3><p>For businesses, brands &amp; communities</p></div><strong>$100</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 300+ Channels</li><li>✓ 150+ Roles</li><li>✓ Everything in Elite</li><li>✓ Custom Discord Bot (Advanced)</li><li>✓ Database with Panel</li><li>✓ Multi-Server Management</li><li>✓ Advanced Automation &amp; Workflows</li><li>✓ Custom Economy (Full System)</li><li>✓ Advanced Ticket &amp; Support System</li><li>✓ Application &amp; Hiring System</li><li>✓ Branding &amp; UI/UX Design</li><li>✓ Anti-Raid + Anti-Nuke (Enterprise)</li><li>✓ Advanced Security &amp; Monitoring</li><li>✓ Custom Commands (Unlimited)</li><li>✓ Detailed Logs &amp; Analytics</li><li>✓ Server Backup &amp; Recovery</li><li>✓ 24/7 Support</li><li>✓ Professional Server Architecture</li><li>✓ Dedicated Setup Guide</li><li>✓ Complete Configuration + Testing</li></div>
+  <div class="full-price-foot"><span>300+ CHANNELS</span><i>|</i><span>150+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(6)">SELECT</button></div>
+</article>
+<article class="full-price-card" data-plan="7">
+  <div class="full-price-head">
+    <div><h3>Industrial</h3><p>For large-scale &amp; high-demand projects</p></div><strong>$250</strong>
+  </div>
+  <div class="full-feature-list"><li>✓ 500+ Channels</li><li>✓ 250+ Roles</li><li>✓ Everything in Commercial</li><li>✓ Fully Custom Discord Bot (with database)</li><li>✓ Multi-Server / Cluster Setup</li><li>✓ Advanced Database Systems</li><li>✓ Custom Web Dashboard (Optional)</li><li>✓ Full Automation &amp; Scripting</li><li>✓ High-Level Security &amp; Anti-DDoS</li><li>✓ Real-Time Monitoring</li><li>✓ Advanced Moderation AI</li><li>✓ Custom Economy (Full + Shops)</li><li>✓ Multi-Language Support</li><li>✓ Custom Ticket &amp; Application Systems</li><li>✓ Staff Management Panel</li><li>✓ Detailed Analytics &amp; Reports</li><li>✓ Branding (Custom UI + Logo)</li><li>✓ Full Server Infrastructure</li><li>✓ Priority Support (24/7)</li><li>✓ Complete Setup + Optimization</li></div>
+  <div class="full-price-foot"><span>500+ CHANNELS</span><i>|</i><span>250+ ROLES</span><button type="button" onclick="selectPlanFromFullCard(7)">SELECT</button></div>
+</article></div>
+  <div class="full-addons">
+    <div class="full-addon-title"><span>ADD-ONS</span><i></i><small>MAKE YOUR SERVER EVEN BETTER</small></div>
+    <div class="full-addon-grid"><button type="button" class="full-addon" data-full-addon="0" onclick="toggleAddonFromFullCard(0)"><span>Custom Bot</span><b>$15+</b></button><button type="button" class="full-addon" data-full-addon="1" onclick="toggleAddonFromFullCard(1)"><span>Advanced Ticket System</span><b>$5</b></button><button type="button" class="full-addon" data-full-addon="2" onclick="toggleAddonFromFullCard(2)"><span>Anti-Raid / Security</span><b>$5</b></button><button type="button" class="full-addon" data-full-addon="3" onclick="toggleAddonFromFullCard(3)"><span>Custom Branding</span><b>$5</b></button><button type="button" class="full-addon" data-full-addon="4" onclick="toggleAddonFromFullCard(4)"><span>Economy System</span><b>$5</b></button><button type="button" class="full-addon" data-full-addon="5" onclick="toggleAddonFromFullCard(5)"><span>Staff Application System</span><b>$3</b></button><button type="button" class="full-addon" data-full-addon="6" onclick="toggleAddonFromFullCard(6)"><span>Giveaway System</span><b>$2</b></button><button type="button" class="full-addon" data-full-addon="7" onclick="toggleAddonFromFullCard(7)"><span>Extra Custom Commands</span><b>$1 each</b></button><button type="button" class="full-addon" data-full-addon="8" onclick="toggleAddonFromFullCard(8)"><span>Database Integration</span><b>$10+</b></button><button type="button" class="full-addon" data-full-addon="9" onclick="toggleAddonFromFullCard(9)"><span>Server Migration</span><b>$5+</b></button></div>
+  </div>
+  <div class="full-benefits">
+    <div>♢ <span>RELIABLE &amp; SECURE</span></div>
+    <div>ϟ <span>FAST DELIVERY</span></div>
+    <div>⚙ <span>CUSTOM SOLUTIONS</span></div>
+    <div>♧ <span>24/7 SUPPORT</span></div>
+  </div>
+</div>
+</section>
+
+
+<section><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Process</div><h2>How It Works</h2></div></div>
+<div class="how"><div class="step"><b>01</b><h3>Tell us your vision</h3><p>Complete the project questionnaire.</p></div><div class="step"><b>02</b><h3>Choose your package</h3><p>Select your plan and add-ons.</p></div><div class="step"><b>03</b><h3>Review your order</h3><p>Check your details and estimated total.</p></div><div class="step"><b>04</b><h3>Payment & build</h3><p>Continue to your configured payment integration.</p></div></div></div></section>
+
+<section id="order"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Project Intake</div><h2>Place an Order</h2></div></div>
+<div class="order-shell">
+<div class="formbox">
+<div class="notice"><b>Privacy:</b> Never enter card numbers, passwords or Discord tokens in this form. Payment credentials belong on the payment provider's secure checkout.</div>
+<form id="orderForm" novalidate>
+<div class="progress" id="progress"></div>
+
+<div class="question active" data-step="0"><h3>Choose your plan.</h3><div class="options" id="planOptions"></div></div>
+
+<div class="question" data-step="1"><h3>Add anything extra.</h3><div class="options" id="formAddonOptions"></div></div>
+
+<div class="question" data-step="2"><h3>What are you building?</h3>
+<div class="options" data-single="true" id="purposeOptions">
+<div class="option">Gaming</div><div class="option">Artist / Creator</div><div class="option">Followers / Community</div><div class="option">Business / Organization</div><div class="option">Personal</div><div class="option">Other</div>
+</div>
+<label class="field"><span>Age range of the community</span><select id="age"><option value="">Choose one</option><option>Under 13</option><option>13–15</option><option>16–17</option><option>18–20</option><option>21+</option><option>Mixed / not sure</option></select></label>
+<label class="field"><span>Why are you making this server?</span><textarea id="reason" placeholder="Tell us what you want the server to achieve..."></textarea></label>
+</div>
+
+<div class="question" data-step="3"><h3>Tell us about the server.</h3>
+<label class="field"><span>Discord username</span><input id="discord" required placeholder="Your Discord username"></label>
+<label class="field"><span>Email</span><input id="email" type="email" required placeholder="you@example.com"></label>
+<label class="field"><span>Country / region</span><input id="country" placeholder="Country or region"></label>
+<label class="field"><span>Preferred contact</span><select id="contact"><option>Discord</option><option>Email</option><option>Either</option></select></label>
+<label class="field"><span>Server size / member count</span><input id="members" placeholder="e.g. 500 members"></label>
+<label class="field"><span>Preferred style</span><input id="style" placeholder="e.g. luxury, minimal, dark, futuristic"></label>
+<label class="field"><span>Deadline</span><input id="deadline" placeholder="e.g. this week / flexible"></label>
+</div>
+
+<div class="question" data-step="4"><h3>Final details.</h3>
+<label class="field"><span>Payment method preference</span><select id="payment"><option value="">Choose one</option><option>Stripe / Card</option><option>PayPal</option><option>Razorpay</option><option>UPI</option><option>Other / discuss with me</option></select></label>
+<label class="field"><span>Additional requirements</span><textarea id="notes" placeholder="Anything else you want Brdawm Studios to know?"></textarea></label>
+<label class="field"><span>How did you find us?</span><select id="source"><option>Discord</option><option>guns.lol</option><option>Google</option><option>Social media</option><option>Friend / referral</option><option>Other</option></select></label>
+</div>
+
+<div class="question" data-step="5"><h3>Review your request.</h3><div class="summary" id="review"></div>
+<label class="field"><span>Order note</span><input id="orderNote" placeholder="Optional note for your order"></label>
+</div>
+
+<div class="formnav"><button class="btn" type="button" id="back">Back</button><button class="btn primary" type="button" id="next">Continue</button></div>
+</form>
+</div>
+
+<aside class="sticky-summary">
+<div class="eyebrow">Live Order</div><h3>Your selection</h3>
+<div class="sumrow"><span>Plan</span><strong id="sumPlan">None</strong></div>
+<div class="sumrow"><span>Add-ons</span><strong id="sumAddons">None</strong></div>
+<div class="total"><span>Starting total</span><strong id="sumTotal">$0</strong></div>
+<div class="note">Prices marked + can vary depending on the final requirements. This total is an estimate until your project is reviewed.</div>
+</aside>
+</div></div></section>
+
+<section id="faq"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Questions</div><h2>FAQ</h2></div></div>
+<div class="faq">
+<details><summary>Can I choose multiple add-ons?</summary><p>Yes. Select as many listed add-ons as your project needs.</p></details>
+<details><summary>Can I request custom requirements?</summary><p>Yes. The final steps include fields for your server goals, style, deadline and extra requirements.</p></details>
+<details><summary>Does this page process real payments?</summary><p>This HTML includes the complete order UI and payment-method selection, but real payment processing requires connecting a secure provider checkout and a backend. Do not put payment credentials directly into this HTML.</p></details>
+<details><summary>How can I contact Brdawm Studios?</summary><p>Discord: BRDAWMX · Email: BRDAWM@gmail.com · Profile: guns.lol/brdawm</p></details>
+</div></div></section>
+
+<footer><div class="wrap foot"><span>© Brdawm Studios</span><span>Discord: BRDAWMX · BRDAWM@gmail.com</span><a href="https://guns.lol/brdawm" target="_blank" rel="noopener">guns.lol/brdawm ↗</a></div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+function selectPlanFromFullCard(i){
+  selectedPlan=i;
+  renderAll();
+  document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+function toggleAddonFromFullCard(i){
+  selectedAddons=selectedAddons.includes(i)?selectedAddons.filter(x=>x!==i):[...selectedAddons,i];
+  renderAll();
+}
+
+const plans=[
+{name:"Starter",price:5,meta:"Perfect for small communities",includes:"25+ channels · 15+ roles"},
+{name:"Basic",price:10,meta:"Ideal for growing communities",includes:"50+ channels · 30+ roles"},
+{name:"Standard",price:15,meta:"Great for gaming & active communities",includes:"75+ channels · 45+ roles"},
+{name:"Pro",price:20,meta:"For serious communities",includes:"100+ channels · 60+ roles"},
+{name:"Premium",price:30,meta:"Professional custom development",includes:"150+ channels · 80+ roles"},
+{name:"Elite",price:50,meta:"Complete Discord server solution",includes:"200+ channels · 100+ roles"},
+{name:"Commercial",price:100,meta:"For businesses, brands & communities",includes:"300+ channels · 150+ roles"},
+{name:"Industrial",price:250,meta:"For large-scale & high-demand projects",includes:"500+ channels · 250+ roles"}
+];
+const addons=[
+{name:"Custom Bot",price:15,plus:true},{name:"Advanced Ticket System",price:5},{name:"Anti-Raid / Security",price:5},
+{name:"Custom Branding",price:5},{name:"Economy System",price:5},{name:"Staff Application System",price:3},
+{name:"Giveaway System",price:2},{name:"Extra Custom Commands",price:1,each:true},{name:"Database Integration",price:10,plus:true},{name:"Server Migration",price:5,plus:true}
+];
+let selectedPlan=null, selectedAddons=[], step=0;
+const qs=[...document.querySelectorAll(".question")];
+
+function money(n){return "$"+n}
+function packageLabel(p){return `${p.name} — ${money(p.price)}`}
+function renderPlanOptions(){
+document.getElementById("planOptions").innerHTML=plans.map((p,i)=>`<div class="option ${selectedPlan===i?"selected":""}" data-pick-plan="${i}">${packageLabel(p)}<br><small>${p.meta}</small></div>`).join("");
+document.querySelectorAll("[data-pick-plan]").forEach(el=>el.onclick=()=>{selectedPlan=+el.dataset.pickPlan;renderAll();});
+}
+function renderAddonOptions(){
+const markup=addons.map((a,i)=>`<div class="addon ${selectedAddons.includes(i)?"selected":""}" data-addon="${i}">${a.name}<b>${money(a.price)}${a.plus?"+":a.each?" each":""}</b></div>`).join("");
+const form=document.getElementById("formAddonOptions");
+if(!form)return;
+form.innerHTML=markup+`<div class="option ${selectedAddons.length===0?"selected":""}" data-none-addon>None</div>`;
+form.querySelectorAll("[data-addon]").forEach(el=>el.onclick=()=>toggleAddon(+el.dataset.addon));
+form.querySelector("[data-none-addon]").onclick=()=>{selectedAddons=[];renderAll();};
+}
+function renderAll(){
+  renderPlanOptions();
+  renderAddonOptions();
+  document.querySelectorAll(".full-price-card").forEach((c,n)=>c.classList.toggle("selected-full",n===selectedPlan));
+  document.querySelectorAll(".full-addon").forEach((el,n)=>el.classList.toggle("selected",selectedAddons.includes(n)));
+  updateSummary();
+}
+function toggleAddon(i){if(selectedAddons.includes(i))selectedAddons=selectedAddons.filter(x=>x!==i);else selectedAddons.push(i);renderAll();}
+function total(){return (selectedPlan===null?0:plans[selectedPlan].price)+selectedAddons.reduce((s,i)=>s+addons[i].price,0)}
+function updateSummary(){
+document.getElementById("sumPlan").textContent=selectedPlan===null?"None":packageLabel(plans[selectedPlan]);
+document.getElementById("sumAddons").textContent=selectedAddons.length?selectedAddons.map(i=>addons[i].name).join(", "):"None";
+document.getElementById("sumTotal").textContent=money(total())+(addons.some((a,i)=>selectedAddons.includes(i)&&a.plus)?"+" :"");
+}
+function renderProgress(){document.getElementById("progress").innerHTML=qs.map((_,i)=>`<i class="bar ${i<=step?"on":""}"></i>`).join("")}
+function renderStep(){qs.forEach((q,i)=>q.classList.toggle("active",i===step));renderProgress();document.getElementById("back").style.visibility=step?"visible":"hidden";document.getElementById("next").textContent=step===qs.length-1?"Create Order":"Continue";if(step===5)buildReview();window.scrollTo({top:document.getElementById("order").offsetTop-80,behavior:"smooth"});}
+function selectedText(id){return [...document.querySelectorAll(`#${id} .selected`)].map(x=>x.textContent.trim()).join(", ")||"Not selected"}
+function buildReview(){
+const p=selectedPlan===null?"Not selected":packageLabel(plans[selectedPlan]);
+const a=selectedAddons.length?selectedAddons.map(i=>addons[i].name).join(", "):"None";
+document.getElementById("review").textContent=
+`PLAN\n${p}\n\nADD-ONS\n${a}\n\nPURPOSE\n${selectedText("purposeOptions")}\n\nAGE RANGE\n${document.getElementById("age").value||"Not selected"}\n\nCONTACT\n${document.getElementById("discord").value||"Not provided"} · ${document.getElementById("email").value||"Not provided"}\n\nCOUNTRY / REGION\n${document.getElementById("country").value||"Not provided"}\n\nSERVER SIZE\n${document.getElementById("members").value||"Not provided"}\n\nSTYLE\n${document.getElementById("style").value||"Not provided"}\n\nDEADLINE\n${document.getElementById("deadline").value||"Not provided"}\n\nPAYMENT PREFERENCE\n${document.getElementById("payment").value||"Not selected"}\n\nESTIMATED TOTAL\n${money(total())}${selectedAddons.some(i=>addons[i].plus)?"+":""}`;
+}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",3500)}
+function validateStep(){
+if(step===0&&selectedPlan===null){toast("Please choose a plan first.");return false}
+if(step===3){
+const form=document.getElementById("orderForm");
+for(const id of ["discord","email"]){const el=document.getElementById(id);if(!el.reportValidity())return false}
+}
+return true;
+}
+document.getElementById("back").onclick=()=>{if(step){step--;renderStep();}};
+document.getElementById("next").onclick=()=>{
+if(!validateStep())return;
+if(step<qs.length-1){step++;renderStep();return}
+const order={
+id:"BRD-"+Date.now().toString().slice(-8),created:new Date().toISOString(),
+plan:selectedPlan===null?null:plans[selectedPlan],addons:selectedAddons.map(i=>addons[i]),
+purpose:selectedText("purposeOptions"),age:document.getElementById("age").value,
+reason:document.getElementById("reason").value,discord:document.getElementById("discord").value,
+email:document.getElementById("email").value,country:document.getElementById("country").value,
+contact:document.getElementById("contact").value,members:document.getElementById("members").value,
+style:document.getElementById("style").value,deadline:document.getElementById("deadline").value,
+payment:document.getElementById("payment").value,notes:document.getElementById("notes").value,
+source:document.getElementById("source").value,orderNote:document.getElementById("orderNote").value,total:total()
+};
+localStorage.setItem("brdawm_last_order",JSON.stringify(order));
+const body=`BRDAWM STUDIOS — NEW ORDER ${order.id}
+
+Plan: ${order.plan?.name||"None"} — $${order.plan?.price||0}
+Add-ons: ${order.addons.map(a=>a.name).join(", ")||"None"}
+Estimated total: $${order.total}
+
+Purpose: ${order.purpose}
+Age range: ${order.age}
+Reason: ${order.reason}
+
+Discord: ${order.discord}
+Email: ${order.email}
+Country/region: ${order.country}
+Preferred contact: ${order.contact}
+Server size: ${order.members}
+Style: ${order.style}
+Deadline: ${order.deadline}
+Payment preference: ${order.payment}
+
+Additional requirements:
+${order.notes}
+
+Order note:
+${order.orderNote}`;
+const mail="mailto:BRDAWM@gmail.com?subject="+encodeURIComponent("Brdawm Studios — "+order.id)+"&body="+encodeURIComponent(body);
+document.getElementById("next").disabled=true;
+toast("Order saved in this browser. Opening your email app...");
+setTimeout(()=>window.location.href=mail,500);
+};
+renderAll();renderProgress();
+</script>
+</body>
+</html>
